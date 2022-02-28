@@ -2,6 +2,7 @@
 
 
 function showingData() {
+    document.getElementById('error-loading').style.display = 'block'
     fetch('https://jsonplaceholder.typicode.com/photos')
         .then(response => response.json())
         .then(json => displayPhoto(json))
@@ -10,6 +11,7 @@ function showingData() {
 showingData();
 
 const displayPhoto = photos => {
+
 
     const showDiv = document.getElementById('showing-photo')
     photos.forEach(showPhotos => {
@@ -30,6 +32,8 @@ const displayPhoto = photos => {
         `
 
         showDiv.appendChild(newDiv);
+
+        document.getElementById('error-loading').style.display = 'none'
     })
 }
 
